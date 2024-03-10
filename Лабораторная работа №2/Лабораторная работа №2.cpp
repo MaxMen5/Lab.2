@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 using namespace std;
 
 void instruction() {
@@ -71,9 +71,14 @@ struct Queue {
 		return ans;
 	}
 	void removeNegative() {
+		if (count() == 0) {
+			cout << "Ошибка! Стек пуст.\n";
+			return;
+		}
 		Node* node = first;
+		Node* del;
 		while (true) {
-			Node* del = node;
+			del = node;
 			last = node;
 			if (node->next == nullptr) { break; }
 			if (node->next->param < 0) {
@@ -88,12 +93,17 @@ struct Queue {
 		}
 		if (first->param < 0) {
 			node = first;
+			if (first == last) { last = nullptr; }
 			first = first->next;
 			delete node;
 			counting--;
 		}
 	}
 	void insertBeforeNegative() {
+		if (count() == 0) {
+			cout << "Ошибка! Стек пуст.\n";
+			return;
+		}
 		Node* node = first;
 		if (node->param < 0) {
 			Node* insert = new Node();
