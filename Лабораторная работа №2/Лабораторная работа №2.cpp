@@ -112,7 +112,7 @@ struct Queue {
 			first = insert;
 			counting++;
 		}
-		while (true) {
+		while (node != last) {
 			if (node->next->param < 0) {
 				Node* insert = new Node();
 				insert->param = 1;
@@ -122,7 +122,6 @@ struct Queue {
 				counting++;
 			}
 			node = node->next;
-			if (node == last) { break; }
 		}
 	}
 };
