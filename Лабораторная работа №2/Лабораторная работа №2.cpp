@@ -41,7 +41,6 @@ struct Queue {
 	}
 	int unqueue() {
 		if (count() == 0) {
-			cout << "Ошибка! Стек пуст.";
 			return 0;
 		}
 		if (first == last) { last = nullptr; } 
@@ -60,6 +59,7 @@ struct Queue {
 			delete del;
 			counting--;
 		}
+		last = nullptr;
 	}
 	int count(int value) {
 		int ans = 0, iter = count();
@@ -72,7 +72,6 @@ struct Queue {
 	}
 	void removeNegative() {
 		if (count() == 0) {
-			cout << "Ошибка! Стек пуст.\n";
 			return;
 		}
 		Node* node = first;
@@ -101,7 +100,6 @@ struct Queue {
 	}
 	void insertBeforeNegative() {
 		if (count() == 0) {
-			cout << "Ошибка! Стек пуст.\n";
 			return;
 		}
 		Node* node = first;
